@@ -2,11 +2,11 @@
   "name": "restaurant_management",
   "version": "1.0.0",
   "description": "restaurant-management-backend",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-   "start":"node src/server.js",
-   "dev":"nodemon src/server.js"
-},
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shubham-Dash-dev/restaurant-management-backend.git"
@@ -29,6 +29,7 @@
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.11.0",
     "pg": "^8.22.0",
+    "reflect-metadata": "^0.2.2",
     "typeorm": "^1.1.0"
   },
   "devDependencies": {
