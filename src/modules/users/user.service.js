@@ -1,5 +1,6 @@
 const userRepository = require("./user.repository");
 const bcrypt = require("bcrypt");
+const env = require('../../config/env');
 
 // create user
 module.exports.createUser = async (userData) => {
@@ -14,7 +15,7 @@ module.exports.createUser = async (userData) => {
     }
   }
   
-  const salt = process.env.SALT || 10;
+  const salt = env.salt || 10;
   const hashedPassword = await bcrypt.hash(userData.password, Number(salt));
   const newUser = await userRepository.createNewUser({
     ...userData,
@@ -26,25 +27,25 @@ module.exports.createUser = async (userData) => {
 };
 
 // get all users 
-module.exports.getAllUsers = async (queryParams) => {
-  console.log(queryParams);
-  const page = Number(queryParams.page) || 1;
-  const limit = Number(queryParams.limit) || 10;
-  console.log({page,limit});
-  const [users, total] = await userRepository.findAllUsers(queryParams);
+// module.exports.getAllUsers = async (queryParams) => {
+//   console.log(queryParams);
+//   const page = Number(queryParams.page) || 1;
+//   const limit = Number(queryParams.limit) || 10;
+//   console.log({page,limit});
+//   const [users, total] = await userRepository.findAllUsers(queryParams);
 
 
-  const sanitizedUsers = users.map(({ password, refreshToken, ...rest }) => rest);
+//   const sanitizedUsers = users.map(({ password, refreshToken, ...rest }) => rest);
 
 
-  return {
-    users: sanitizedUsers,
-    total,
-    page,
-    limit,
-    totalPages: Math.ceil(total / limit),
-  };
-};
+//   return {
+//     users: sanitizedUsers,
+//     total,
+//     page,
+//     limit,
+//     totalPages: Math.ceil(total / limit),
+//   };
+// };
 // get all users 
 module.exports.getAllUsers = async (queryParams) => {
   // Clean query object keys (strips accidental trailing spaces)

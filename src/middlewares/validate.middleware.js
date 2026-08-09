@@ -13,7 +13,7 @@ const validate = (req, res, next) => {
     
     return sendError(res, 400, "Validation Failed", formattedErrors);
   }
- 
+
   next();
 };
 
