@@ -54,8 +54,11 @@ module.exports.getAllUsers = async (queryParams) => {
     cleanQuery[key.trim()] = queryParams[key];
   });
   // console.log(cleanQuery)
-  const page = Number(cleanQuery.page) || 1;
-  const limit = Number(cleanQuery.limit) || 10;
+   
+  // Ensure safe pagination bounds (page >= 1, 1 <= limit <= 100)
+  const page = Math.max(1, Number(cleanQuery.page) || 1);
+  const limit = Math.min(100, Math.max(1, Number(cleanQuery.limit) || 10));
+
   // console.log(page , limit);
   const [users, total] = await userRepository.findAllUsers({
     ...cleanQuery,

@@ -1,4 +1,5 @@
 const categoryRepository = require('./category.repository');
+const menuRepository = require('../menu/menu.repository');
 
 // create category 
 module.exports.createCategory = async(categoryData)=>{
@@ -51,6 +52,12 @@ module.exports.deleteCategory = async(id)=>{
     if(!category){
         throw new Error("Category not found");
     } 
+    // Check if any menu items are attached to this category
+    const [items, count] = await menuRepository.findAllMenuItems({ categoryId: id });
+    if (count > 0) {
+        throw new Error("Cannot delete category because it contains active menu items. Please remove or reassign the menu items first.");
+    }
+    
     return await categoryRepository.softDeleteCategoryById(id);
 
 }

@@ -1,7 +1,8 @@
 const express = require("express");
 const userRoutes = require("./modules/users/user.routes");
 const authRoutes = require("./modules/auth/auth.routes");
-const categoryRoutes = require('./modules/categories/category.routes')
+const categoryRoutes = require('./modules/categories/category.routes');
+const menuRoutes = require('./modules/menu/menu.routes')
 const { sendError } = require("./utils/responseHandler");
 
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/categories", categoryRoutes);
-
+app.use("/api/v1/menu",menuRoutes);
 
 // if no route found then it will hit this route 
 app.all('/{*splat}', (req, res) => {
