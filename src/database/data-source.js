@@ -1,6 +1,7 @@
 const { DataSource } = require("typeorm");
 const env = require("../config/env");
 const User = require("../modules/users/user.entity");
+const Category = require('../modules/categories/category.entity');
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -11,7 +12,7 @@ const AppDataSource = new DataSource({
   database: env.dbName,
   synchronize: false,
   logging: false,
-  entities: [User],
+  entities: [User, Category],
   migrations: ["src/migrations/*.js"],
 });
 
