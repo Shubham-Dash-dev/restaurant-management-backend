@@ -2,6 +2,9 @@ const AppDataSource = require("../../database/data-source");
 const User = require("./user.entity");
 
 const userRepository = AppDataSource.getRepository(User);
+// we create userRepository from typeorm repository getRepository() method where we pass the enitity name which is registered in typeorm datasource 
+// just need repository of that registered entity 
+// and typrorm provides CRUD operation on table using the repository 
 
 const findUserByEmail = async (email) => {
   return await userRepository.findOne({ where: { email } });

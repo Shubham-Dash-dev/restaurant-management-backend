@@ -62,7 +62,47 @@ const restrictTo = (...roles) => {
   };
 };
 
+
+//  Optional Auth Middleware (For mixed public/admin routes)
+const optionalAuth = async (req, res, next) => {
+  try {
+    let token;
+
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer ")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
+
+    // If no token, just proceed as guest (no error thrown)
+    if (!token) {
+      return next();
+    }
+
+    // If token exists, try to decode and attach user
+    try {
+      const decoded = verifyAccessToken(token);
+      const currentUser = await userRepository.findUserById(decoded.id);
+      if (currentUser && currentUser.isActive) {
+        req.user = currentUser;
+      }
+    } catch (err) {
+      // If token is invalid or expired, ignore and proceed as guest
+    }
+
+    next();
+  } catch (error) {
+    next();
+  }
+};
+
 module.exports = {
   protect,
   restrictTo,
+  optionalAuth, 
 };
+
+
+
+
