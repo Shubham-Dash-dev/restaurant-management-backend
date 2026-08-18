@@ -7,6 +7,7 @@ const Cart = require('../modules/cart/cart.entity');
 const CartItem = require('../modules/cart/cartItem.entity');
 const Order = require('../modules/orders/order.entity');
 const OrderItem = require('../modules/orders/orderItem.entity');
+const Notification = require('../modules/notifications/notification.entity');
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -17,7 +18,15 @@ const AppDataSource = new DataSource({
   database: env.dbName,
   synchronize: false,
   logging: false,
-  entities: [User, Category, MenuItem,Cart,CartItem,Order,OrderItem],
+  entities: [
+    User, 
+    Category, 
+    MenuItem,
+    Cart,
+    CartItem,
+    Order,
+    OrderItem,
+    Notification],
   migrations: ["src/migrations/*.js"],
 });
 

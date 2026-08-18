@@ -5,6 +5,7 @@ const categoryRoutes = require('./modules/categories/category.routes');
 const menuRoutes = require('./modules/menu/menu.routes')
 const cartRoutes = require('./modules/cart/cart.routes');
 const { orderRoutes, staffOrderRoutes, adminOrderRoutes } = require("./modules/orders/order.routes");
+const notificationRoutes = require("./modules/notifications/notification.routes");
 const { sendError } = require("./utils/responseHandler");
 
 
@@ -23,6 +24,7 @@ app.use("/api/v1/cart",cartRoutes);
 app.use("/api/v1/orders", orderRoutes);
 app.use("/api/v1/staff/orders", staffOrderRoutes);
 app.use("/api/v1/admin/orders", adminOrderRoutes);
+app.use("/api/v1/notifications", notificationRoutes);
 
 // if no route found then it will hit this route 
 app.all('/{*splat}', (req, res) => {

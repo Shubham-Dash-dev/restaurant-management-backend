@@ -1,6 +1,7 @@
 const AppDataSource = require("../../database/data-source");
 const orderRepository = require("./order.repository");
 const cartRepository = require("../cart/cart.repository");
+const notificationService = require("../notifications/notification.service");
 const { ORDER_STATUS, ALLOWED_STATUS_TRANSITIONS } = require("../../constants/orderStatus");
 
 // Helper: Format single order receipt for API responses
@@ -107,7 +108,18 @@ const placeOrder = async (userId) => {
     // Step 5: Clear Customer's Cart (Inside Transaction)
     await cartRepository.clearCart(cart.id);
 
-    // Step 6: Commit Transaction (All operations succeeded atomically!)
+    // Step 6: Create Notification for Customer (Inside Transaction)
+    await notificationService.createNotification(
+      {
+        userId,
+        orderId: newOrder.id,
+        title: "Order Placed Successfully",
+        message: `Your order #${newOrder.id.slice(0, 8)} for ₹${totalAmount} has been placed.`,
+      },
+      queryRunner.manager
+    );
+
+    // Step 7: Commit Transaction (All operations succeeded atomically!)
     await queryRunner.commitTransaction();
 
     // Fetch and return complete order receipt
@@ -119,7 +131,7 @@ const placeOrder = async (userId) => {
     throw error;
   } finally {
     // Always release the database connection back to the pool
-    await queryRunner.release(); 
+    await queryRunner.release();
     //i am finished using this database connection. Give it back to the connection pool so another request can use it."
   }
 };
@@ -187,6 +199,15 @@ const cancelOrder = async (orderId, userId) => {
     orderId,
     ORDER_STATUS.CANCELLED
   );
+
+  // Create Cancellation Notification for Customer
+  await notificationService.createNotification({
+    userId: order.userId,
+    orderId: order.id,
+    title: "Order Cancelled",
+    message: `Your order #${order.id.slice(0, 8)} has been cancelled.`,
+  });
+
   return formatOrderReceipt(updatedOrder);
 };
 
@@ -210,6 +231,23 @@ const updateOrderStatus = async (orderId, newStatus) => {
   }
 
   const updatedOrder = await orderRepository.updateOrderStatus(orderId, newStatus);
+
+  // Create Status Update Notification for Customer
+  const statusMessages = {
+    [ORDER_STATUS.PREPARING]: "is now being prepared in the kitchen.",
+    [ORDER_STATUS.PREPARED]: "is prepared and ready to be served!",
+    [ORDER_STATUS.SERVED]: "has been served. Enjoy your meal!",
+  };
+
+  if (statusMessages[newStatus]) {
+    await notificationService.createNotification({
+      userId: order.userId,
+      orderId: order.id,
+      title: `Order ${newStatus}`,
+      message: `Your order #${order.id.slice(0, 8)} ${statusMessages[newStatus]}`,
+    });
+  }
+
   return formatOrderReceipt(updatedOrder);
 };
 
