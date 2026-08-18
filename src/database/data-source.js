@@ -5,7 +5,8 @@ const Category = require('../modules/categories/category.entity');
 const MenuItem = require('../modules/menu/menu.entity')
 const Cart = require('../modules/cart/cart.entity');
 const CartItem = require('../modules/cart/cartItem.entity');
-
+const Order = require('../modules/orders/order.entity');
+const OrderItem = require('../modules/orders/orderItem.entity');
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -16,7 +17,7 @@ const AppDataSource = new DataSource({
   database: env.dbName,
   synchronize: false,
   logging: false,
-  entities: [User, Category, MenuItem,Cart,CartItem],
+  entities: [User, Category, MenuItem,Cart,CartItem,Order,OrderItem],
   migrations: ["src/migrations/*.js"],
 });
 
