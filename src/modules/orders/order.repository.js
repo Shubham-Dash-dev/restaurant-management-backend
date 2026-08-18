@@ -34,8 +34,10 @@ const findUserOrders = async (userId, { page = 1, limit = 10, status }) => {
 
   const queryBuilder = orderRepository
     .createQueryBuilder("order")
+    .leftJoinAndSelect("order.user", "user")
     .leftJoinAndSelect("order.items", "items")
     .leftJoinAndSelect("items.menuItem", "menuItem")
+    .leftJoinAndSelect("menuItem.category", "category")
     .where("order.userId = :userId", { userId });
 
   if (status) {

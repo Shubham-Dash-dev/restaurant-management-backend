@@ -31,7 +31,7 @@ const formatOrderReceipt = (order) => {
   return {
     id: order.id,
     userId: order.userId,
-    customerName: order.user ? order.user.name : null,
+    customerName: order.user ? (order.user.fullName || order.user.name) : null,
     customerEmail: order.user ? order.user.email : null,
     customerPhone: order.user ? order.user.phone : null,
     orderStatus: order.orderStatus,

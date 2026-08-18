@@ -19,12 +19,7 @@ orderRoutes.get("/", restrictTo("CUSTOMER"), orderController.getCustomerOrders);
 orderRoutes.get("/:id", validateUUID, orderController.getOrderById);
 
 // Cancel pending order (Customer only)
-orderRoutes.patch(
-  "/:id/cancel",
-  restrictTo("CUSTOMER"),
-  validateUUID,
-  orderController.cancelOrder
-);
+orderRoutes.patch("/:id/cancel",restrictTo("CUSTOMER"),validateUUID,orderController.cancelOrder);
 
 // --- 2. Staff Orders Router (/api/v1/staff/orders) ---
 const staffOrderRoutes = express.Router();
@@ -35,13 +30,7 @@ staffOrderRoutes.use(restrictTo("STAFF", "ADMIN"));
 staffOrderRoutes.get("/", orderController.getStaffOrders);
 
 // Update order status (Pending -> Preparing -> Prepared -> Served)
-staffOrderRoutes.patch(
-  "/:id/status",
-  validateUUID,
-  updateOrderStatusValidation,
-  validate,
-  orderController.updateOrderStatus
-);
+staffOrderRoutes.patch("/:id/status",validateUUID,updateOrderStatusValidation,validate,orderController.updateOrderStatus);
 
 // --- 3. Admin Orders Router (/api/v1/admin/orders) ---
 const adminOrderRoutes = express.Router();
