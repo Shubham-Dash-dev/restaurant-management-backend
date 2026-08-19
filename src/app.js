@@ -8,6 +8,11 @@ const cartRoutes = require('./modules/cart/cart.routes');
 const { orderRoutes, staffOrderRoutes, adminOrderRoutes } = require("./modules/orders/order.routes");
 const notificationRoutes = require("./modules/notifications/notification.routes");
 const favoriteRoutes = require("./modules/favorites/favorite.routes");
+const {
+  paymentRoutes,
+  adminPaymentRoutes,
+} = require("./modules/payments/payment.routes"); 
+
 const { sendError } = require("./utils/responseHandler");
 
 
@@ -36,7 +41,8 @@ app.use("/api/v1/staff/orders", staffOrderRoutes);
 app.use("/api/v1/admin/orders", adminOrderRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/favorites", favoriteRoutes);
-
+app.use("/api/v1/payments", paymentRoutes);             // <-- Customer Payments
+app.use("/api/v1/admin/payments", adminPaymentRoutes); 
 // if no route found then it will hit this route 
 app.all('/{*splat}', (req, res) => {
     return sendError(res,404, "Route not found");

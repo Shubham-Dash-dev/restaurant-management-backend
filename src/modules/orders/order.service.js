@@ -3,6 +3,8 @@ const orderRepository = require("./order.repository");
 const cartRepository = require("../cart/cart.repository");
 const notificationService = require("../notifications/notification.service");
 const { ORDER_STATUS, ALLOWED_STATUS_TRANSITIONS } = require("../../constants/orderStatus");
+const paymentRepository = require("../payments/payment.repository");
+const { PAYMENT_STATUS } = require("../../constants/paymentStatus");
 
 // Helper: Format single order receipt for API responses
 const formatOrderReceipt = (order) => {
@@ -199,6 +201,19 @@ const cancelOrder = async (orderId, userId) => {
     orderId,
     ORDER_STATUS.CANCELLED
   );
+  
+    // Check if order was already paid. If YES -> Automatically initiate Refund!
+  const payment = await paymentRepository.findPaymentByOrderId(orderId);
+  if (payment && payment.paymentStatus === PAYMENT_STATUS.COMPLETED) {
+    await paymentRepository.updatePaymentStatus(payment.id, PAYMENT_STATUS.REFUNDED);
+    // Send Refund Notification
+    await notificationService.createNotification({
+      userId: order.userId,
+      orderId: order.id,
+      title: "Refund Initiated",
+      message: `Refund of ₹${payment.amount} has been initiated for your cancelled order #${order.id.slice(0, 8)}.`,
+    });
+  }
 
   // Create Cancellation Notification for Customer
   await notificationService.createNotification({

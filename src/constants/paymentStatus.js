@@ -1,0 +1,17 @@
+const PAYMENT_METHODS = {
+  CASH: "CASH",
+  UPI: "UPI",
+  CARD: "CARD",
+};
+
+const PAYMENT_STATUS = {
+  PENDING: "PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  REFUNDED: "REFUNDED",
+};
+
+module.exports = {
+  PAYMENT_METHODS,
+  PAYMENT_STATUS,
+};
