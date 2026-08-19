@@ -1,0 +1,2690 @@
+{
+  "info": {
+    "_postman_id": "efb986f2-3548-4d8e-8f33-f399df58484e",
+    "name": "Restaurant Copy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48354316",
+    "_collection_link": "https://go.postman.co/collection/48354316-efb986f2-3548-4d8e-8f33-f399df58484e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Arjun singh\",\r\n  \"email\": \"staff1@example.com\",\r\n  \"password\": \"password123\",\r\n  \"role\": \"STAFF\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/users/05ff0341-c8f8-412a-a294-a2195452f1ae",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "users",
+                "05ff0341-c8f8-412a-a294-a2195452f1ae"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/users",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "role",
+                  "value": "CUSTOMER",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}api/v1/users",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "role",
+                      "value": "CUSTOMER",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "864"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"360-fdBDDyXSlJ7LTl1wVsnxECGZnFc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Aug 2026 12:01:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Users fetched successfully\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"createdAt\": \"2026-08-09T10:14:21.638Z\",\n                \"updatedAt\": \"2026-08-14T06:21:00.681Z\",\n                \"fullName\": \"Rahul Sharma\",\n                \"email\": \"rahul@example.com\",\n                \"phone\": \"9999988888\",\n                \"role\": \"CUSTOMER\",\n                \"isActive\": true,\n                \"deletedAt\": null\n            },\n            {\n                \"id\": \"05ff0341-c8f8-412a-a294-a2195452f1ae\",\n                \"createdAt\": \"2026-08-07T06:16:25.670Z\",\n                \"updatedAt\": \"2026-08-07T09:20:05.092Z\",\n                \"fullName\": \"Sohan dash\",\n                \"email\": \"sohanupdated@example.com\",\n                \"phone\": null,\n                \"role\": \"CUSTOMER\",\n                \"isActive\": true,\n                \"deletedAt\": null\n            },\n            {\n                \"id\": \"c114d770-35fc-46a7-8b8f-ff98d6b68f88\",\n                \"createdAt\": \"2026-08-06T16:45:56.777Z\",\n                \"updatedAt\": \"2026-08-17T12:00:53.177Z\",\n                \"fullName\": \"Shubham Dash\",\n                \"email\": \"subham@example.com\",\n                \"phone\": \"9089098761\",\n                \"role\": \"ADMIN\",\n                \"isActive\": true,\n                \"deletedAt\": null\n            }\n        ],\n        \"total\": 3,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Soft Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/users/e0378853-fbc6-4ca1-8c1e-408b1f250c0f",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "users",
+                "e0378853-fbc6-4ca1-8c1e-408b1f250c0f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update user",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"sohanUpdated@example.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/05ff0341-c8f8-412a-a294-a2195452f1ae",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "users",
+                "05ff0341-c8f8-412a-a294-a2195452f1ae"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Rahul Sharma\",\r\n  \"email\": \"rahul@example.com\",\r\n  \"password\": \"password123\",\r\n  \"phone\": \"9999988888\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/register",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// customer \r\n// {\r\n//   \"email\": \"rahul@example.com\",\r\n//   \"password\": \"password123\"\r\n// }\r\n\r\n{\r\n    \"email\":\"test_1787116067713@example.com\",\r\n    \"password\":\"Password123\"\r\n}\r\n// {\r\n//   \"email\": \"sohanupdated@example.com\",\r\n//   \"password\": \"password123\"\r\n// }\r\n\r\n// staff\r\n// {\r\n//     \"email\": \"staff1@example.com\",\r\n//     \"password\": \"password123\"\r\n// }\r\n\r\n// admin\r\n// {\r\n//   \"email\": \"subham@example.com\",\r\n// //   \"password\": \"password123\"\r\n//   \"password\":\"newpassword456\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/login",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Generate New Access Token",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\": \"{{json_web_token_0nt3}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/refresh-token",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\":\"c114d770-35fc-46a7-8b8f-ff98d6b68f88\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/logout",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Logout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\":\"c114d770-35fc-46a7-8b8f-ff98d6b68f88\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/auth/logout",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-kIyl+vW0tmSGZfZAOmXa0WW/lb4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 09 Aug 2026 18:31:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Logout successful\",\n    \"data\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/auth/profile",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}api/v1/auth/profile",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "311"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"137-Zx8xNLBW8M6vfF3thzeshuEoll0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 09 Aug 2026 19:00:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profile fetched successfully\",\n    \"data\": {\n        \"id\": \"c114d770-35fc-46a7-8b8f-ff98d6b68f88\",\n        \"createdAt\": \"2026-08-06T16:45:56.777Z\",\n        \"updatedAt\": \"2026-08-09T18:59:42.282Z\",\n        \"fullName\": \"Subham Dash\",\n        \"email\": \"subham@example.com\",\n        \"phone\": \"9089098761\",\n        \"role\": \"ADMIN\",\n        \"isActive\": true,\n        \"deletedAt\": null\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fullName\":\"Shubham Dash\",\r\n    \"phone\":\"9089098761\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/profile",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Profile",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"fullName\":\"Shubham Dash\",\r\n    \"phone\":\"9089098761\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/auth/profile",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "312"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"138-/BXXnaj+qkUn+lGCc8h+Mvk2kHw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 09 Aug 2026 19:02:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profile updated successfully\",\n    \"data\": {\n        \"id\": \"c114d770-35fc-46a7-8b8f-ff98d6b68f88\",\n        \"createdAt\": \"2026-08-06T16:45:56.777Z\",\n        \"updatedAt\": \"2026-08-09T19:02:38.723Z\",\n        \"fullName\": \"Shubham Dash\",\n        \"email\": \"subham@example.com\",\n        \"phone\": \"9089098761\",\n        \"role\": \"ADMIN\",\n        \"isActive\": true,\n        \"deletedAt\": null\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"currentPassword\": \"password123\",\r\n  \"newPassword\": \"newpassword456\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/auth/change-password",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "auth",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Beverages\",\r\n  \"description\": \"Cold drinks and juices\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/categories",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "pizza",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Pizza\",\r\n  \"description\": \"Hand-tossed Italian pizzas\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/categories",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "280"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"118-XhL42dVIXR37jHQgeZtFmTjTkfk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 14 Aug 2026 06:14:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Category created successfully\",\n    \"data\": {\n        \"name\": \"Pizza\",\n        \"description\": \"Hand-tossed Italian pizzas\",\n        \"id\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n        \"createdAt\": \"2026-08-14T06:14:22.360Z\",\n        \"updatedAt\": \"2026-08-14T06:14:22.360Z\",\n        \"isActive\": true,\n        \"deletedAt\": null\n    }\n}"
+            },
+            {
+              "name": "beverages",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Beverages\",\r\n  \"description\": \"Cold drinks and juices\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/categories",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "280"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"118-5+efY9LVxYgxwW4PE2EAeuTGRp8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 14 Aug 2026 06:16:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Category created successfully\",\n    \"data\": {\n        \"name\": \"Beverages\",\n        \"description\": \"Cold drinks and juices\",\n        \"id\": \"0e887b59-cf31-46f0-a495-7cdffe4f6dba\",\n        \"createdAt\": \"2026-08-14T06:16:17.409Z\",\n        \"updatedAt\": \"2026-08-14T06:16:17.409Z\",\n        \"isActive\": true,\n        \"deletedAt\": null\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/categories",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Category by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/categories/b6f57750-7065-4cad-a934-566056554593",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "categories",
+                "b6f57750-7065-4cad-a934-566056554593"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Spicy Hub\",\r\n  \"isActive\":false  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/categories/c65ac576-e76a-4cc9-a418-a51a5dc7fdbd",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "categories",
+                "c65ac576-e76a-4cc9-a418-a51a5dc7fdbd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Soft Delete Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/categories/cf30b651-e2dc-4018-bd91-8a922f71b72f",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "categories",
+                "cf30b651-e2dc-4018-bd91-8a922f71b72f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Menu Items",
+      "item": [
+        {
+          "name": "Get All Menu Items",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/menu/",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "menu",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "-price",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "500",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "-1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "pizza",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "isVeg",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "categoryId",
+                  "value": "b6f57750-7065-4cad-a934-566056554593",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "isAvailable",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Menu Items By Id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/menu/f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "menu",
+                "f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Menu Items By Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}api/v1/menu/f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "menu",
+                    "f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "666"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"29a-M2U+5bJvXC5oord5/an0/CsHv0A\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 18:05:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Menu item fetched successfully\",\n    \"data\": {\n        \"id\": \"f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a\",\n        \"createdAt\": \"2026-08-14T06:33:24.117Z\",\n        \"updatedAt\": \"2026-08-18T18:05:27.688Z\",\n        \"name\": \"Farmhouse Pizza\",\n        \"description\": \"Classic cheese and Farm Shaped Pizza\",\n        \"price\": \"499.00\",\n        \"imageUrl\": \"https://example.com/images/farmHouse.jpg\",\n        \"isVeg\": true,\n        \"isAvailable\": true,\n        \"categoryId\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n        \"deletedAt\": null,\n        \"category\": {\n            \"id\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n            \"createdAt\": \"2026-08-14T06:14:22.360Z\",\n            \"updatedAt\": \"2026-08-14T06:14:22.360Z\",\n            \"name\": \"Pizza\",\n            \"description\": \"Hand-tossed Italian pizzas\",\n            \"isActive\": true,\n            \"deletedAt\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create a menu Item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Spicy Chineese\",\r\n  \"description\": \"chineese with extra spicy\",\r\n  \"price\": 199.00,\r\n  \"imageUrl\": \"https://example.com/images/spicy.jpg\",\r\n  \"isVeg\": true,\r\n  \"categoryId\": \"c65ac576-e76a-4cc9-a418-a51a5dc7fdbd\"\r\n}\r\n// {\r\n//   \"name\": \"Margherita Pizza\",\r\n//   \"price\": 350.00,\r\n//   \"categoryId\": \"e268c80f-6042-447e-ba46-84df63f0adc2\"\r\n// }\r\n// {\r\n//   \"name\": \"Lemon Iced Tea\",\r\n//   \"price\": 120.00,\r\n//   \"isVeg\": true,\r\n//   \"categoryId\": \"0e887b59-cf31-46f0-a495-7cdffe4f6dba\"\r\n// }\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/menu",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "menu"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "margherita",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Margherita Pizza\",\r\n  \"description\": \"Classic cheese and tomato pizza\",\r\n  \"price\": 299.00,\r\n  \"imageUrl\": \"https://example.com/images/margherita.jpg\",\r\n  \"isVeg\": true,\r\n  \"isAvailable\": true,\r\n  \"categoryId\": \"e268c80f-6042-447e-ba46-84df63f0adc2\"\r\n}\r\n\r\n\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/menu",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "menu"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "663"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"297-29jHc1qFhb6vvqpW6VNR9omr/20\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 14 Aug 2026 06:24:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Menu item created successfully\",\n    \"data\": {\n        \"id\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\n        \"createdAt\": \"2026-08-14T06:24:28.671Z\",\n        \"updatedAt\": \"2026-08-14T06:24:28.671Z\",\n        \"name\": \"Margherita Pizza\",\n        \"description\": \"Classic cheese and tomato pizza\",\n        \"price\": \"299.00\",\n        \"imageUrl\": \"https://example.com/images/margherita.jpg\",\n        \"isVeg\": true,\n        \"isAvailable\": true,\n        \"categoryId\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n        \"deletedAt\": null,\n        \"category\": {\n            \"id\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n            \"createdAt\": \"2026-08-14T06:14:22.360Z\",\n            \"updatedAt\": \"2026-08-14T06:14:22.360Z\",\n            \"name\": \"Pizza\",\n            \"description\": \"Hand-tossed Italian pizzas\",\n            \"isActive\": true,\n            \"deletedAt\": null\n        }\n    }\n}"
+            },
+            {
+              "name": "Create a menu Item",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Spicy Chineese\",\r\n  \"description\": \"chineese with extra spicy\",\r\n  \"price\": 199.00,\r\n  \"imageUrl\": \"https://example.com/images/spicy.jpg\",\r\n  \"isVeg\": true,\r\n  \"categoryId\": \"c65ac576-e76a-4cc9-a418-a51a5dc7fdbd\"\r\n}\r\n// {\r\n//   \"name\": \"Margherita Pizza\",\r\n//   \"price\": 350.00,\r\n//   \"categoryId\": \"e268c80f-6042-447e-ba46-84df63f0adc2\"\r\n// }\r\n// {\r\n//   \"name\": \"Lemon Iced Tea\",\r\n//   \"price\": 120.00,\r\n//   \"isVeg\": true,\r\n//   \"categoryId\": \"0e887b59-cf31-46f0-a495-7cdffe4f6dba\"\r\n// }\r\n\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/menu",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "menu"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "684"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2ac-v2TA2RzjHJO+wQKHzBfoE/Lp2m8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Aug 2026 12:17:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Menu item created successfully\",\n    \"data\": {\n        \"id\": \"8b8db0eb-d8e0-45fb-b150-912a8ed94ca9\",\n        \"createdAt\": \"2026-08-17T12:17:21.273Z\",\n        \"updatedAt\": \"2026-08-17T12:17:21.273Z\",\n        \"name\": \"Spicy Chineese\",\n        \"description\": \"chineese with extra spicy\",\n        \"price\": \"199.00\",\n        \"imageUrl\": \"https://example.com/images/spicy.jpg\",\n        \"isVeg\": true,\n        \"isAvailable\": true,\n        \"categoryId\": \"c65ac576-e76a-4cc9-a418-a51a5dc7fdbd\",\n        \"deletedAt\": null,\n        \"category\": {\n            \"id\": \"c65ac576-e76a-4cc9-a418-a51a5dc7fdbd\",\n            \"createdAt\": \"2026-08-10T10:31:05.358Z\",\n            \"updatedAt\": \"2026-08-10T10:32:43.075Z\",\n            \"name\": \"Spicy Hub\",\n            \"description\": \"Crispy and delicious finger foods to kickstart your meal\",\n            \"isActive\": true,\n            \"deletedAt\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Toggle Availability",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/menu/3ab31cd2-5e27-488a-82b9-fafaa3abd0ee/toggle-availability",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "menu",
+                "3ab31cd2-5e27-488a-82b9-fafaa3abd0ee",
+                "toggle-availability"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update menu item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"price\": 499.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/menu/f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "menu",
+                "f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Menu item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/menu/cfd10db3-c333-4bfc-aaef-549f39a11a74",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "menu",
+                "cfd10db3-c333-4bfc-aaef-549f39a11a74"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Get Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/cart",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "cart"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Cart",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}api/v1/cart",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "cart"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "197"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c5-g0F6LMxZZ+48PUIfuggFUjtJTuk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Aug 2026 12:03:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Cart fetched successfully\",\n    \"data\": {\n        \"id\": \"e1da0437-ddb1-43ba-8ed6-bf781f449d62\",\n        \"userId\": \"05ff0341-c8f8-412a-a294-a2195452f1ae\",\n        \"items\": [],\n        \"totalItems\": 0,\n        \"totalAmount\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add to Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"menuItemId\": \"80c4820e-0386-42ab-9fc4-9a3597ea06ba\",\r\n  \"quantity\": 2\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/cart/items",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "cart",
+                "items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add to Cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"menuItemId\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\r\n  \"quantity\": 2\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}api/v1/cart/items",
+                  "host": [
+                    "{{URL}}api"
+                  ],
+                  "path": [
+                    "v1",
+                    "cart",
+                    "items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "890"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37a-YLu1WGsLajmv0nQMTM2vBOEftTY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 17 Aug 2026 12:28:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Item added to cart successfully\",\n    \"data\": {\n        \"id\": \"e1da0437-ddb1-43ba-8ed6-bf781f449d62\",\n        \"userId\": \"05ff0341-c8f8-412a-a294-a2195452f1ae\",\n        \"items\": [\n            {\n                \"id\": \"ed7904ff-a2e7-4743-af24-4a235c6840f9\",\n                \"quantity\": 2,\n                \"menuItem\": {\n                    \"id\": \"ffa738be-b866-4c78-9527-9f256a03212c\",\n                    \"name\": \"Paneer Butter Cheese Masala\",\n                    \"price\": 280,\n                    \"imageUrl\": \"https://example.com/images/paneerCheese.jpg\",\n                    \"isVeg\": true,\n                    \"isAvailable\": true,\n                    \"category\": {\n                        \"id\": \"b6f57750-7065-4cad-a934-566056554593\",\n                        \"name\": \"Starters & Appetizers\"\n                    }\n                },\n                \"subtotal\": 560\n            },\n            {\n                \"id\": \"8484747f-3c0e-4081-99d9-9a5b81ed2b8c\",\n                \"quantity\": 2,\n                \"menuItem\": {\n                    \"id\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\n                    \"name\": \"Margherita Pizza\",\n                    \"price\": 319,\n                    \"imageUrl\": \"https://example.com/images/margherita.jpg\",\n                    \"isVeg\": true,\n                    \"isAvailable\": true,\n                    \"category\": {\n                        \"id\": \"e268c80f-6042-447e-ba46-84df63f0adc2\",\n                        \"name\": \"Pizza\"\n                    }\n                },\n                \"subtotal\": 638\n            }\n        ],\n        \"totalItems\": 4,\n        \"totalAmount\": 1198\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update quantity",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"quantity\": 5\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/cart/items/8484747f-3c0e-4081-99d9-9a5b81ed2b8c",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "cart",
+                "items",
+                "8484747f-3c0e-4081-99d9-9a5b81ed2b8c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Cart item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/cart/items/8484747f-3c0e-4081-99d9-9a5b81ed2b8c",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "cart",
+                "items",
+                "8484747f-3c0e-4081-99d9-9a5b81ed2b8c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Entire Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/cart/clear",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "cart",
+                "clear"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Staff",
+          "item": [
+            {
+              "name": "Get Orders Staff",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/staff/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "staff",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Order Status",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{jwt}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"status\": \"Preparing\" \r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/staff/orders/c4945f80-ea3a-4379-93ab-89c33bc7ee5b/status",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "staff",
+                    "orders",
+                    "c4945f80-ea3a-4379-93ab-89c33bc7ee5b",
+                    "status"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Update Order Status",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n   \"status\": \"Preparing\" \r\n}\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:5000/api/v1/staff/orders/c4945f80-ea3a-4379-93ab-89c33bc7ee5b/status",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "5000",
+                      "path": [
+                        "api",
+                        "v1",
+                        "staff",
+                        "orders",
+                        "c4945f80-ea3a-4379-93ab-89c33bc7ee5b",
+                        "status"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "670"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"29e-/fASXDajWs/jeEhBxplCCYHSQ/A\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 18 Aug 2026 19:39:41 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Order status updated successfully\",\n    \"data\": {\n        \"id\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n        \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n        \"customerName\": \"Rahul Sharma\",\n        \"customerEmail\": \"rahul@example.com\",\n        \"customerPhone\": \"9999988888\",\n        \"orderStatus\": \"Preparing\",\n        \"totalAmount\": 160,\n        \"createdAt\": \"2026-08-18T19:27:20.090Z\",\n        \"updatedAt\": \"2026-08-18T19:39:41.221Z\",\n        \"items\": [\n            {\n                \"id\": \"85868b41-393f-4dc0-a89b-bf58afee8f28\",\n                \"quantity\": 2,\n                \"priceAtPurchase\": 80,\n                \"subtotal\": 160,\n                \"menuItem\": {\n                    \"id\": \"80c4820e-0386-42ab-9fc4-9a3597ea06ba\",\n                    \"name\": \"Tandoori Roti\",\n                    \"imageUrl\": \"https://example.com/images/tandooriRoti.jpg\",\n                    \"isVeg\": true,\n                    \"category\": \"Starters & Appetizers\"\n                }\n            }\n        ]\n    }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Admin",
+          "item": [
+            {
+              "name": "View all orders Admin",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{jwt}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/admin/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "Served",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "View all orders Admin",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:5000/api/v1/admin/orders",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "5000",
+                      "path": [
+                        "api",
+                        "v1",
+                        "admin",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "key": "status",
+                          "value": "Served",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "Text",
+                  "header": [
+                    {
+                      "key": "X-Powered-By",
+                      "value": "Express"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "1559"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"617-Nla1s6uOi0A4Vl4Dctt1V7TZf0o\""
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 18 Aug 2026 18:20:39 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"All restaurant orders fetched successfully\",\n    \"data\": {\n        \"orders\": [\n            {\n                \"id\": \"468bb158-7905-439b-934e-aab05b205552\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"customerName\": \"Rahul Sharma\",\n                \"customerEmail\": \"rahul@example.com\",\n                \"customerPhone\": \"9999988888\",\n                \"orderStatus\": \"Served\",\n                \"totalAmount\": 878,\n                \"createdAt\": \"2026-08-18T17:39:57.289Z\",\n                \"updatedAt\": \"2026-08-18T17:57:16.934Z\",\n                \"items\": [\n                    {\n                        \"id\": \"5076172d-b86a-49e7-a829-c37084321a53\",\n                        \"quantity\": 2,\n                        \"priceAtPurchase\": 399,\n                        \"subtotal\": 798,\n                        \"menuItem\": {\n                            \"id\": \"f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a\",\n                            \"name\": \"Farmhouse Pizza\",\n                            \"imageUrl\": \"https://example.com/images/farmHouse.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    },\n                    {\n                        \"id\": \"6248165b-eb51-4747-8b39-7ec506f0c94a\",\n                        \"quantity\": 1,\n                        \"priceAtPurchase\": 80,\n                        \"subtotal\": 80,\n                        \"menuItem\": {\n                            \"id\": \"80c4820e-0386-42ab-9fc4-9a3597ea06ba\",\n                            \"name\": \"Tandoori Roti\",\n                            \"imageUrl\": \"https://example.com/images/tandooriRoti.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    }\n                ]\n            },\n            {\n                \"id\": \"d14da282-b4b6-4216-97c2-69b429709941\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"customerName\": \"Rahul Sharma\",\n                \"customerEmail\": \"rahul@example.com\",\n                \"customerPhone\": \"9999988888\",\n                \"orderStatus\": \"Cancelled\",\n                \"totalAmount\": 638,\n                \"createdAt\": \"2026-08-18T17:10:56.261Z\",\n                \"updatedAt\": \"2026-08-18T17:27:30.646Z\",\n                \"items\": [\n                    {\n                        \"id\": \"2ebdbaec-32d7-4fe2-858e-bddd3cf8915f\",\n                        \"quantity\": 2,\n                        \"priceAtPurchase\": 319,\n                        \"subtotal\": 638,\n                        \"menuItem\": {\n                            \"id\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\n                            \"name\": \"Margherita Pizza\",\n                            \"imageUrl\": \"https://example.com/images/margherita.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    }\n                ]\n            }\n        ],\n        \"total\": 2,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Place New Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Place New Order",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "646"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"286-g1RpDRqcxDnOKxuV8x2XcVjKB/k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 17:10:56 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order placed successfully\",\n    \"data\": {\n        \"id\": \"d14da282-b4b6-4216-97c2-69b429709941\",\n        \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n        \"customerName\": \"Rahul Sharma\",\n        \"customerEmail\": \"rahul@example.com\",\n        \"customerPhone\": \"9999988888\",\n        \"orderStatus\": \"Pending\",\n        \"totalAmount\": 638,\n        \"createdAt\": \"2026-08-18T17:10:56.261Z\",\n        \"updatedAt\": \"2026-08-18T17:10:56.261Z\",\n        \"items\": [\n            {\n                \"id\": \"2ebdbaec-32d7-4fe2-858e-bddd3cf8915f\",\n                \"quantity\": 2,\n                \"priceAtPurchase\": 319,\n                \"subtotal\": 638,\n                \"menuItem\": {\n                    \"id\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\n                    \"name\": \"Margherita Pizza\",\n                    \"imageUrl\": \"https://example.com/images/margherita.jpg\",\n                    \"isVeg\": true,\n                    \"category\": \"Pizza\"\n                }\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order Cancel",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/orders/468bb158-7905-439b-934e-aab05b205552/cancel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "orders",
+                "468bb158-7905-439b-934e-aab05b205552",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get single order receipt CSA",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/orders/468bb158-7905-439b-934e-aab05b205552",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "orders",
+                "468bb158-7905-439b-934e-aab05b205552"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get single order receipt",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/orders/468bb158-7905-439b-934e-aab05b205552",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders",
+                    "468bb158-7905-439b-934e-aab05b205552"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "931"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a3-SnX41koxDhqVOcx5mzhKumtkqFs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 18:08:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order details fetched successfully\",\n    \"data\": {\n        \"id\": \"468bb158-7905-439b-934e-aab05b205552\",\n        \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n        \"customerName\": \"Rahul Sharma\",\n        \"customerEmail\": \"rahul@example.com\",\n        \"customerPhone\": \"9999988888\",\n        \"orderStatus\": \"Served\",\n        \"totalAmount\": 878,\n        \"createdAt\": \"2026-08-18T17:39:57.289Z\",\n        \"updatedAt\": \"2026-08-18T17:57:16.934Z\",\n        \"items\": [\n            {\n                \"id\": \"5076172d-b86a-49e7-a829-c37084321a53\",\n                \"quantity\": 2,\n                \"priceAtPurchase\": 399,\n                \"subtotal\": 798,\n                \"menuItem\": {\n                    \"id\": \"f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a\",\n                    \"name\": \"Farmhouse Pizza\",\n                    \"imageUrl\": \"https://example.com/images/farmHouse.jpg\",\n                    \"isVeg\": true,\n                    \"category\": \"Pizza\"\n                }\n            },\n            {\n                \"id\": \"6248165b-eb51-4747-8b39-7ec506f0c94a\",\n                \"quantity\": 1,\n                \"priceAtPurchase\": 80,\n                \"subtotal\": 80,\n                \"menuItem\": {\n                    \"id\": \"80c4820e-0386-42ab-9fc4-9a3597ea06ba\",\n                    \"name\": \"Tandoori Roti\",\n                    \"imageUrl\": \"https://example.com/images/tandooriRoti.jpg\",\n                    \"isVeg\": true,\n                    \"category\": \"Starters & Appetizers\"\n                }\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Customer Order History",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/orders",
+              "host": [
+                "{{URL}}api"
+              ],
+              "path": [
+                "v1",
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Customer Order History",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/orders?page=1&limit=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1485"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5cd-UJMcbvNzxIDPOuYZx0TM31RVwWw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 18:13:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order history fetched successfully\",\n    \"data\": {\n        \"orders\": [\n            {\n                \"id\": \"468bb158-7905-439b-934e-aab05b205552\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"customerName\": null,\n                \"customerEmail\": null,\n                \"customerPhone\": null,\n                \"orderStatus\": \"Served\",\n                \"totalAmount\": 878,\n                \"createdAt\": \"2026-08-18T17:39:57.289Z\",\n                \"updatedAt\": \"2026-08-18T17:57:16.934Z\",\n                \"items\": [\n                    {\n                        \"id\": \"5076172d-b86a-49e7-a829-c37084321a53\",\n                        \"quantity\": 2,\n                        \"priceAtPurchase\": 399,\n                        \"subtotal\": 798,\n                        \"menuItem\": {\n                            \"id\": \"f92ddfa8-bfa6-4f51-aae0-06cece7c1a9a\",\n                            \"name\": \"Farmhouse Pizza\",\n                            \"imageUrl\": \"https://example.com/images/farmHouse.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    },\n                    {\n                        \"id\": \"6248165b-eb51-4747-8b39-7ec506f0c94a\",\n                        \"quantity\": 1,\n                        \"priceAtPurchase\": 80,\n                        \"subtotal\": 80,\n                        \"menuItem\": {\n                            \"id\": \"80c4820e-0386-42ab-9fc4-9a3597ea06ba\",\n                            \"name\": \"Tandoori Roti\",\n                            \"imageUrl\": \"https://example.com/images/tandooriRoti.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    }\n                ]\n            },\n            {\n                \"id\": \"d14da282-b4b6-4216-97c2-69b429709941\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"customerName\": null,\n                \"customerEmail\": null,\n                \"customerPhone\": null,\n                \"orderStatus\": \"Cancelled\",\n                \"totalAmount\": 638,\n                \"createdAt\": \"2026-08-18T17:10:56.261Z\",\n                \"updatedAt\": \"2026-08-18T17:27:30.646Z\",\n                \"items\": [\n                    {\n                        \"id\": \"2ebdbaec-32d7-4fe2-858e-bddd3cf8915f\",\n                        \"quantity\": 2,\n                        \"priceAtPurchase\": 319,\n                        \"subtotal\": 638,\n                        \"menuItem\": {\n                            \"id\": \"3ab31cd2-5e27-488a-82b9-fafaa3abd0ee\",\n                            \"name\": \"Margherita Pizza\",\n                            \"imageUrl\": \"https://example.com/images/margherita.jpg\",\n                            \"isVeg\": true,\n                            \"category\": null\n                        }\n                    }\n                ]\n            }\n        ],\n        \"total\": 2,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notification",
+      "item": [
+        {
+          "name": "Get users notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/notifications",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "notifications"
+              ],
+              "query": [
+                {
+                  "key": "isRead",
+                  "value": "false",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get users notification",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/notifications",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notifications"
+                  ],
+                  "query": [
+                    {
+                      "key": "isRead",
+                      "value": "false",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "934"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a6-Uk/KyMTG+/+6Y7rs2VD+rzB+yzw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 19:44:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Notifications fetched successfully\",\n    \"data\": {\n        \"unreadCount\": 1,\n        \"notifications\": [\n            {\n                \"id\": \"f8e85098-5548-46e2-98b7-417a264ae6e7\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"orderId\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n                \"title\": \"Order Preparing\",\n                \"message\": \"Your order #c4945f80 is now being prepared in the kitchen.\",\n                \"isRead\": false,\n                \"createdAt\": \"2026-08-18T19:39:41.228Z\",\n                \"order\": {\n                    \"id\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n                    \"orderStatus\": \"Preparing\",\n                    \"totalAmount\": 160\n                }\n            },\n            {\n                \"id\": \"094508a3-88ff-4767-878d-2bf95524ff84\",\n                \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n                \"orderId\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n                \"title\": \"Order Placed Successfully\",\n                \"message\": \"Your order #c4945f80 for ₹160 has been placed.\",\n                \"isRead\": true,\n                \"createdAt\": \"2026-08-18T19:27:20.090Z\",\n                \"order\": {\n                    \"id\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n                    \"orderStatus\": \"Preparing\",\n                    \"totalAmount\": 160\n                }\n            }\n        ],\n        \"total\": 2,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get single notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/notifications/094508a3-88ff-4767-878d-2bf95524ff84",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "notifications",
+                "094508a3-88ff-4767-878d-2bf95524ff84"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get single notification",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/notifications/094508a3-88ff-4767-878d-2bf95524ff84",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notifications",
+                    "094508a3-88ff-4767-878d-2bf95524ff84"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "467"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1d3-9bI2hs1FqE2jWyYp8ufoEI9vjHU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 19:36:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Notification details fetched successfully\",\n    \"data\": {\n        \"id\": \"094508a3-88ff-4767-878d-2bf95524ff84\",\n        \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n        \"orderId\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n        \"title\": \"Order Placed Successfully\",\n        \"message\": \"Your order #c4945f80 for ₹160 has been placed.\",\n        \"isRead\": false,\n        \"createdAt\": \"2026-08-18T19:27:20.090Z\",\n        \"order\": {\n            \"id\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n            \"orderStatus\": \"Pending\",\n            \"totalAmount\": 160\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Mark single notification as read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/notifications/094508a3-88ff-4767-878d-2bf95524ff84/read",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "notifications",
+                "094508a3-88ff-4767-878d-2bf95524ff84",
+                "read"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Mark single notification as read",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/notifications/094508a3-88ff-4767-878d-2bf95524ff84/read",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notifications",
+                    "094508a3-88ff-4767-878d-2bf95524ff84",
+                    "read"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "454"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c6-LgBpSjuoRZt+X4zdmHg4crgsEBQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 19:43:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Notification marked as read\",\n    \"data\": {\n        \"id\": \"094508a3-88ff-4767-878d-2bf95524ff84\",\n        \"userId\": \"c5e73dda-ed3c-4008-8a83-9414b965c60b\",\n        \"orderId\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n        \"title\": \"Order Placed Successfully\",\n        \"message\": \"Your order #c4945f80 for ₹160 has been placed.\",\n        \"isRead\": true,\n        \"createdAt\": \"2026-08-18T19:27:20.090Z\",\n        \"order\": {\n            \"id\": \"c4945f80-ea3a-4379-93ab-89c33bc7ee5b\",\n            \"orderStatus\": \"Preparing\",\n            \"totalAmount\": 160\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Mark ALL notifications as read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/notifications/read-all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "notifications",
+                "read-all"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Mark ALL notifications as read",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/notifications/read-all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notifications",
+                    "read-all"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "73"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"49-jjvchqAPSwE/Q2PGR+LcpSmc56k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 19:47:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"All notifications marked as read\",\n    \"data\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete a notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/notifications/f8e85098-5548-46e2-98b7-417a264ae6e7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "notifications",
+                "f8e85098-5548-46e2-98b7-417a264ae6e7"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/v1/notifications/f8e85098-5548-46e2-98b7-417a264ae6e7",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "notifications",
+                    "f8e85098-5548-46e2-98b7-417a264ae6e7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "115"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"73-SgJLHalPoEZQiP/N/M3cGoLCj2M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Aug 2026 19:49:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Notification deleted successfully\",\n    \"data\": {\n        \"id\": \"f8e85098-5548-46e2-98b7-417a264ae6e7\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "supabase_service_role_api_key_0nt3"
+    },
+    {
+      "key": "json_web_token_0nt3"
+    },
+    {
+      "key": "supabase_service_role_api_key_11sw"
+    }
+  ]
+}
