@@ -1,4 +1,5 @@
 const express = require("express");
+const rateLimit = require("express-rate-limit");
 const userRoutes = require("./modules/users/user.routes");
 const authRoutes = require("./modules/auth/auth.routes");
 const categoryRoutes = require('./modules/categories/category.routes');
@@ -12,8 +13,16 @@ const { sendError } = require("./utils/responseHandler");
 const app = express();
 
 // Middlewares
-app.use(express.json());
+app.use(express.json({limit:"10kb"}));
+app.use(express.urlencoded({extended:true,limit:"10kb"}));
 
+// Global Rate Limiter (Max 1000 requests per hour per IP)
+const globalLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 1000,
+  message: "Too many requests from this IP, please try again after an hour.",
+});
+app.use("/api", globalLimiter);
 
 // API Routes
 app.use("/api/v1/users", userRoutes);
