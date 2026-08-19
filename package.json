@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "restaurant-management-backend",
   "main": "src/server.js",
-    "scripts": {
+  "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "migration:generate": "typeorm migration:generate -d src/database/data-source.js -o",
     "migration:run": "typeorm migration:run -d src/database/data-source.js",
-    "migration:revert": "typeorm migration:revert -d src/database/data-source.js"
+    "migration:revert": "typeorm migration:revert -d src/database/data-source.js",
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,9 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
+    "jest": "^30.4.2",
     "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2"
   }
